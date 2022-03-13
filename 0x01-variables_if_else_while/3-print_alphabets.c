@@ -1,19 +1,24 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
- * Description: Using the main funnction
- * this program prints the alphabet in lowercase
- * Return: Always 0.
+ * main - main block
+ * Description:  prints the alphabet in lowercase,
+ * and then in uppercase, followed by a new line.
+ * Return: 0
  */
 int main(void)
 {
-char ltr;
-
-for (ltr = 'a'; ltr <= 'z'; ltr++)
-putchar(ltr);
-
+char c = 'a';
+while (c <= 'z')
+{
+putchar(c);
+c++;
+}
+c = 'A';
+while (c <= 'Z')
+{
+putchar(c);
+c++;
+}
 putchar('\n');
-
 return (0);
 }
