@@ -63,5 +63,5 @@ return (checker(s1, s2, a, wildUsed, wildUsed));
 }
 if (s2[b] != '\0')
 return (checkLast(s2, b));
-return (1);
+return (int 1);
 }
