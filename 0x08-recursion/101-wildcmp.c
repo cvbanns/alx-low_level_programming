@@ -29,7 +29,7 @@ return (checkLast(s, i + 1));
 else if (s[i] == '\0')
 return (1);
 
-return (1);
+return (0);
 
 }
 /**
