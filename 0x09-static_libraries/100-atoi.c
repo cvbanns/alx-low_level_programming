@@ -1,28 +1,63 @@
-#include "main.h"
+/**
+ * pows - raise n to power x
+ * @n: integer
+ * @x: integer
+ *
+ * Return: the power of n to x
+ */
+int pows(int n, int x)
+{
+int i;
+int result;
+
+result = 1;
+for (i = 0; i < x; i++)
+result *= n;
+return (result);
+}
 
 /**
- * _atoi - convert a string to an integer.
- * @s: char type string
- * Return: integer converted
+ * _atoi - convert a string to an integer
+ * @s: string to convert to integer
+ *
+ * Return: the inter gotten from the conversion
  */
-
 int _atoi(char *s)
 {
-int sign = 1, resp = 0, firstNum;
+int i;
+int x;
+int j;
+char *a;
+unsigned int n;
+int neg;
 
-for (firstNum = 0; !(s[firstNum] >= 48 && s[firstNum] <= 57); firstNum++)
+i = 0;
+x = 0;
+a = s;
+neg = 0;
+for (; *a != '\0'; ++a)
 {
-if (s[firstNum] == '-')
+if (*a == '-')
+neg++;
+if (*a >= 48 && *a <= 57)
 {
-sign *= -1;
+x++;
+continue;
 }
+else if (x > 0)
+break;
+i++;
+}
+n = 0;
+if (x > 0)
+{
+for (j = 1; j <= x; j++)
+{
+n += (pows(10, (x - j)) * (s[(i + j - 1)] - '0'));
 }
 
-for (int i = firstNum; s[i] >= 48 && s[i] <= 57; i++)
-{
-resp *= 10;
-resp += (s[i] - 48);
+if (neg % 2 > 0)
+n = 0 - n;
 }
-
-return (sign * resp);
+return (n);
 }
